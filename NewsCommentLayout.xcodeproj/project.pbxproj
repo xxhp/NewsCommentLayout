@@ -23,6 +23,7 @@
 		65FEA8731C0B26FD00183375 /* test.json in Resources */ = {isa = PBXBuildFile; fileRef = 65FEA8701C0B26FD00183375 /* test.json */; };
 		65FEA87D1C0B2BB600183375 /* Simulator.png in Resources */ = {isa = PBXBuildFile; fileRef = 65FEA87C1C0B2BB600183375 /* Simulator.png */; };
 		65FEA87F1C0B2BCD00183375 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 65FEA87E1C0B2BCD00183375 /* README.md */; };
+		65FEA8811C0B32E400183375 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 65FEA8801C0B32E400183375 /* LICENSE */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		65FEA8701C0B26FD00183375 /* test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = test.json; sourceTree = "<group>"; };
 		65FEA87C1C0B2BB600183375 /* Simulator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Simulator.png; sourceTree = "<group>"; };
 		65FEA87E1C0B2BCD00183375 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		65FEA8801C0B32E400183375 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				65FEA87C1C0B2BB600183375 /* Simulator.png */,
+				65FEA8801C0B32E400183375 /* LICENSE */,
 				65FEA87E1C0B2BCD00183375 /* README.md */,
 				65FEA8221C0B22D000183375 /* NewsCommentLayout */,
 				65FEA83C1C0B22D100183375 /* NewsCommentLayoutTests */,
@@ -221,6 +224,7 @@
 			files = (
 				65FEA8331C0B22D000183375 /* LaunchScreen.storyboard in Resources */,
 				65FEA8301C0B22D000183375 /* Assets.xcassets in Resources */,
+				65FEA8811C0B32E400183375 /* LICENSE in Resources */,
 				65FEA8711C0B26FD00183375 /* head_default@2x.png in Resources */,
 				65FEA87D1C0B2BB600183375 /* Simulator.png in Resources */,
 				65FEA82E1C0B22D000183375 /* Main.storyboard in Resources */,
@@ -393,6 +397,7 @@
 				65FEA84F1C0B22D100183375 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
