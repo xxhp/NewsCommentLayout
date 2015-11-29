@@ -8,8 +8,7 @@ NewsCommentLayout is licensed under the MIT license
 
 ScreenShot
 
-<img src="https://github.com/xxhp/NewsCommentLayout/blob/master/Simulator.png">
-
+<iframe src="https://appetize.io/embed/6heahz69636cf4ed1pk60nhe9r?device=iphone5s&scale=100&autoplay=false&orientation=portrait&deviceColor=black" width="378px" height="800px" frameborder="0" scrolling="no"></iframe>
 
  
 
