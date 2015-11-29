@@ -8,9 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "CommentModel.h"
-@class LayoutContainerView;
+ 
 @interface LayoutView : UIView
-@property(nonatomic,assign)BOOL isLastFloor;
-@property(nonatomic,assign)LayoutContainerView *container;
-- (instancetype)initWithFrame:(CGRect)frame andInfo:(CommentModel *)info andParentView:(LayoutView *)p isLast:(BOOL)isLast;
+- (instancetype)initWithFrame:(CGRect)frame andModel:(CommentModel *)info andParentView:(LayoutView *)p isLast:(BOOL)isLast;
 @end

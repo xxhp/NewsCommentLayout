@@ -10,46 +10,32 @@
 #import "LayoutContainerView.h"
 #import "Constant.h"
 @interface LayoutView()
-@property(nonatomic,strong)CommentModel *dic;
+
+@property(nonatomic,strong)CommentModel *model;
 @property(nonatomic,strong)UILabel *nameLabel;
 @property(nonatomic,strong)UILabel *floorLabel;
 @property(nonatomic,strong)UILabel *commentLabel;
 @property(nonatomic,strong)UILabel *addressLabel;
 @property(nonatomic,assign)UIView *parent;
+@property(nonatomic,assign)BOOL isLastFloor;
 
 @end
 
 @implementation LayoutView
-- (CGSize)text:(NSString *)string SizeWithFont:(UIFont *)font constrainedToSize:(CGSize)size
-{
-    CGSize textSize;
-    
-    
-    NSDictionary *attribute = @{NSFontAttributeName: font};
-    textSize = [string boundingRectWithSize:CGSizeMake(size.width, 0)
-                                    options:\
-                NSStringDrawingTruncatesLastVisibleLine |
-                NSStringDrawingUsesLineFragmentOrigin |
-                NSStringDrawingUsesFontLeading
-                                 attributes:attribute
-                                    context:nil].size;
- 
-    return textSize;
-}
-- (instancetype)initWithFrame:(CGRect)frame andInfo:(CommentModel *)info andParentView:(LayoutView *)p isLast:(BOOL)isLast
+
+- (instancetype)initWithFrame:(CGRect)frame andModel:(CommentModel *)info andParentView:(LayoutView *)p isLast:(BOOL)isLast
 {
     if (self = [super initWithFrame:frame]) {
+        self.isLastFloor = isLast;
         self.parent = p;
-        self.dic = info;
+        self.model = info;
         if (!isLast) {
             self.layer.borderWidth = LayoutBordWidth;
             self.layer.borderColor = LayoutBordColor.CGColor;
             self.backgroundColor = LayoutBackgroundColor;
         }
-       
         
         _nameLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-        
         _commentLabel = [[UILabel alloc] initWithFrame:CGRectZero];
         _commentLabel.numberOfLines =0;
         _commentLabel.font =[UIFont systemFontOfSize:14];
@@ -60,17 +46,17 @@
         
         _floorLabel = [[UILabel alloc] initWithFrame:CGRectZero];
         _floorLabel.font =[UIFont systemFontOfSize:12];
-        _floorLabel.text = self.dic.floor;
+        _floorLabel.text = self.model.floor;
         _floorLabel.textColor =[UIColor grayColor];
         
         _nameLabel.frame = CGRectMake(5, self.parent.frame.size.height ,self.frame.size.width - 10, 34);
         _floorLabel.frame = CGRectMake(self.frame.size.width - 15, self.parent.frame.size.height +5 ,15, 34);
         _commentLabel.frame =  CGRectMake(5, self.parent.frame.size.height+40 ,self.frame.size.width - 10,self.frame.size.height - self.parent.frame.size.height - 40);
         _nameLabel.textColor = NameColor;
-       
+        
         
         _addressLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-
+        
         _addressLabel.frame = CGRectMake(_nameLabel.frame.origin.x, self.parent.frame.size.height + 20 ,self.frame.size.width - 10, 34);
         _addressLabel.textColor =[UIColor grayColor];
         _addressLabel.text = info.address;

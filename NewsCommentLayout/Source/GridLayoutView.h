@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 #import "CommentModel.h"
 @interface GridLayoutView : UIView
-- (instancetype)initWithFrame:(CGRect)frame andInfo:(NSArray *)dic;
+- (instancetype)initWithFrame:(CGRect)frame andModels:(NSArray *)modelArray;
 @end

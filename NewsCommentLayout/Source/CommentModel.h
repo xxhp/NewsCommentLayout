@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-@class LayoutView;
+
 @interface CommentModel : NSObject
 
 @property(nonatomic,strong)NSString *name;
@@ -16,8 +16,8 @@
 @property(nonatomic,strong)NSString *comment;
 @property(nonatomic,strong)NSString *timeString;
 @property(nonatomic,strong)NSString *floor;
-@property(nonatomic,assign)CGFloat textHeight;
-@property(nonatomic,assign)CGRect frame;
-@property(nonatomic,assign)LayoutView *view;
+
+
 -(instancetype)initWithDic:(NSDictionary *)dic;
+-(CGSize)sizeWithFont:(UIFont *)font constrainedToSize:(CGSize)size;
 @end

@@ -24,34 +24,24 @@
         NSInteger start = rang.location;
         rang =[string rangeOfString:@"]"];
         NSInteger end = rang.location;
-       
+        
         self.timeString =dic[@"t"];
         self.name = [string substringWithRange:NSMakeRange(start+1, end - start-1)];
-       
+        
     }
     return self;
     
 }
-
-- (CGSize)text:(NSString *)string SizeWithFont:(UIFont *)font constrainedToSize:(CGSize)size
+- (CGSize)sizeWithFont:(UIFont *)font constrainedToSize:(CGSize)size
 {
-    CGSize textSize;
-    
-    
     NSDictionary *attribute = @{NSFontAttributeName: font};
-    textSize = [string boundingRectWithSize:CGSizeMake(size.width, 0)
-                                    options:\
-                NSStringDrawingTruncatesLastVisibleLine |
-                NSStringDrawingUsesLineFragmentOrigin |
-                NSStringDrawingUsesFontLeading
-                                 attributes:attribute
-                                    context:nil].size;
+    CGSize textSize = [self.comment boundingRectWithSize:CGSizeMake(size.width, 0)
+                                                 options:NSStringDrawingTruncatesLastVisibleLine |NSStringDrawingUsesLineFragmentOrigin |NSStringDrawingUsesFontLeading
+                                              attributes:attribute
+                                                 context:nil].size;
+    
     
     
     return textSize;
 }
-//-(CGFloat)textHeight{
-//    CGSize s = [self text:self.comment SizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(200, 1000)];
-//    return s.height;
-//}
 @end
