@@ -3,7 +3,7 @@
 //  NewsCommentLayout
 //
 //  Created by xiaohaibo on 11/29/15.
-//  Copyright © 2015 xiaohaibo. All rights reserved.
+//  Copyright © 2015 xiao haibo. All rights reserved.
 //
 
 #import "ViewController.h"
@@ -47,7 +47,7 @@
         
         for (NSString *index in sortedArray) {
             NSDictionary *dict =dic[index];
-            CommentModel *model =[[CommentModel alloc] initWithDic:dict];
+            CommentModel *model =[[CommentModel alloc] initWithDict:dict];
             model.floor = index;
             [arr addObject:model];
         }
@@ -91,7 +91,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    LayoutContainerView * container =[[LayoutContainerView alloc] initWithModels:_dataSource[indexPath.row]];
+    LayoutContainerView * container =[[LayoutContainerView alloc] initWithModelArray:_dataSource[indexPath.row]];
     return container.frame.size.height;
 }
 
@@ -100,7 +100,7 @@
 {
     CommentTableViewCell * ce =[[CommentTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
     ce.selectionStyle = UITableViewCellSelectionStyleNone;
-    LayoutContainerView * container =[[LayoutContainerView alloc] initWithModels:_dataSource[indexPath.row]];
+    LayoutContainerView * container =[[LayoutContainerView alloc] initWithModelArray:_dataSource[indexPath.row]];
     [ce.contentView addSubview:container];
     return ce;
     

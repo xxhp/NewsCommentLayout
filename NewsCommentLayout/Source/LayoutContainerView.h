@@ -3,12 +3,12 @@
 //  CommentLaout
 //
 //  Created by xiaohaibo on 11/29/15.
-//  Copyright © 2015 xiaohaibo. All rights reserved.
+//  Copyright © 2015 xiao haibo. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 #import "CommentModel.h"
 
 @interface LayoutContainerView : UIView
--(instancetype)initWithModels:(NSArray *)model;
+-(instancetype)initWithModelArray:(NSArray *)modelArray;
 @end

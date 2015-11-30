@@ -3,7 +3,7 @@
 //  NewsCommentLayoutTests
 //
 //  Created by xiaohaibo on 11/29/15.
-//  Copyright © 2015 xiaohaibo. All rights reserved.
+//  Copyright © 2015 xiao haibo. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>

@@ -3,7 +3,7 @@
 //  CommentLaout
 //
 //  Created by xiaohaibo on 11/29/15.
-//  Copyright © 2015 xiaohaibo. All rights reserved.
+//  Copyright © 2015 xiao haibo. All rights reserved.
 //
 
 
@@ -14,11 +14,12 @@
 #import "Constant.h"
 @interface LayoutContainerView()
 
-@property(nonatomic,strong)UILabel *nameLabel;
-@property(nonatomic,strong)UILabel *addressLabel;
-@property(nonatomic,strong)UIImageView *headImageView;
-@property(nonatomic,strong)UIButton *likeButton;
-@property(nonatomic,strong)CommentModel *model;
+@property (nonatomic,strong) UILabel      *nameLabel;
+@property (nonatomic,strong) UILabel      *addressLabel;
+@property (nonatomic,strong) UIImageView  *headImageView;
+@property (nonatomic,strong) UIButton     *likeButton;
+@property (nonatomic,strong) CommentModel *model;
+
 @end
 
 @implementation LayoutContainerView
@@ -31,7 +32,7 @@
  }
  */
 
--(void)update:(NSMutableArray *)sortedArray{
+-(void)updateWithModelArray:(NSMutableArray *)sortedArray{
     
     self.backgroundColor = CellBackgroundColor;
     
@@ -41,17 +42,17 @@
     
     CommentModel *last = [sortedArray lastObject];
     
-    if(sortedArray.count > 4 ){
+    if(sortedArray.count > 5 ){
         
-        CGRect r = CGRectMake(44+ 5*3, 60 + 5*3, [UIScreen mainScreen].bounds.size.width - 44 -10 - 2*(5 * 3),  0);
-        GridLayoutView  *vie =[[GridLayoutView alloc] initWithFrame:r andModels:sortedArray];
+        CGRect r = CGRectMake(44+ 6*3, 60 + 6*3, [UIScreen mainScreen].bounds.size.width - 44 -10 - 2*(6 * 3),  0);
+        GridLayoutView  *vie =[[GridLayoutView alloc] initWithFrame:r andModelArray:sortedArray];
         lastH = vie.frame.size.height;
         [self addSubview:vie];
         lastView = vie;
         
-        i = 4;
+        i = 6;
         
-        for (NSInteger j = sortedArray.count - 4; j< sortedArray.count; j++) {
+        for (NSInteger j = sortedArray.count - 6; j< sortedArray.count; j++) {
             
             CommentModel *model =sortedArray[j];
             
@@ -61,7 +62,7 @@
             
             r.size.height = sz.height +lastH + 55;
             
-            LayoutView *vi =[[LayoutView alloc] initWithFrame:r andModel:model andParentView:lastView isLast:[last isEqual: model]];
+            LayoutView *vi =[[LayoutView alloc] initWithFrame:r model:model parentView:lastView isLast:[last isEqual: model]];
             
             lastH =  r.size.height;
             
@@ -90,7 +91,7 @@
             
             r.size.height = sz.height +lastH + 55;
             
-            LayoutView *vi =[[LayoutView alloc] initWithFrame:r andModel:model andParentView:lastView isLast:[last isEqual: model]];
+            LayoutView *vi =[[LayoutView alloc] initWithFrame:r model:model parentView:lastView isLast:[last isEqual: model]];
             
             lastH =  r.size.height;
             
@@ -134,12 +135,12 @@
     [self addSubview:_addressLabel];
     
 }
--(instancetype)initWithModels:(NSArray *)model{
+-(instancetype)initWithModelArray:(NSArray *)model{
     if (self = [super initWithFrame:CGRectZero]) {
         self.backgroundColor = CellBackgroundColor;
         NSMutableArray *ar =[NSMutableArray arrayWithArray:model];
         self.model = [ar lastObject];
-        [self update:ar];
+        [self updateWithModelArray:ar];
         
     }
     return self;
