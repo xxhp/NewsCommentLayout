@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		657DA58B1C0C9A8700C87ECF /* screenshot.png in Resources */ = {isa = PBXBuildFile; fileRef = 657DA58A1C0C9A8700C87ECF /* screenshot.png */; };
 		65FEA8251C0B22D000183375 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FEA8241C0B22D000183375 /* main.m */; };
 		65FEA8281C0B22D000183375 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FEA8271C0B22D000183375 /* AppDelegate.m */; };
 		65FEA82B1C0B22D000183375 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FEA82A1C0B22D000183375 /* ViewController.m */; };
@@ -21,12 +22,12 @@
 		65FEA8711C0B26FD00183375 /* head_default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65FEA86E1C0B26FD00183375 /* head_default@2x.png */; };
 		65FEA8721C0B26FD00183375 /* like_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65FEA86F1C0B26FD00183375 /* like_btn@2x.png */; };
 		65FEA8731C0B26FD00183375 /* test.json in Resources */ = {isa = PBXBuildFile; fileRef = 65FEA8701C0B26FD00183375 /* test.json */; };
-		65FEA87D1C0B2BB600183375 /* Simulator.png in Resources */ = {isa = PBXBuildFile; fileRef = 65FEA87C1C0B2BB600183375 /* Simulator.png */; };
 		65FEA87F1C0B2BCD00183375 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 65FEA87E1C0B2BCD00183375 /* README.md */; };
 		65FEA8811C0B32E400183375 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 65FEA8801C0B32E400183375 /* LICENSE */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		657DA58A1C0C9A8700C87ECF /* screenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot.png; sourceTree = "<group>"; };
 		65FEA8201C0B22D000183375 /* NewsCommentLayout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsCommentLayout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65FEA8241C0B22D000183375 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		65FEA8261C0B22D000183375 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -55,7 +56,6 @@
 		65FEA86E1C0B26FD00183375 /* head_default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "head_default@2x.png"; sourceTree = "<group>"; };
 		65FEA86F1C0B26FD00183375 /* like_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "like_btn@2x.png"; sourceTree = "<group>"; };
 		65FEA8701C0B26FD00183375 /* test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = test.json; sourceTree = "<group>"; };
-		65FEA87C1C0B2BB600183375 /* Simulator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Simulator.png; sourceTree = "<group>"; };
 		65FEA87E1C0B2BCD00183375 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		65FEA8801C0B32E400183375 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -74,7 +74,7 @@
 		65FEA8171C0B22D000183375 = {
 			isa = PBXGroup;
 			children = (
-				65FEA87C1C0B2BB600183375 /* Simulator.png */,
+				657DA58A1C0C9A8700C87ECF /* screenshot.png */,
 				65FEA8801C0B32E400183375 /* LICENSE */,
 				65FEA87E1C0B2BCD00183375 /* README.md */,
 				65FEA8221C0B22D000183375 /* NewsCommentLayout */,
@@ -225,9 +225,9 @@
 				65FEA8301C0B22D000183375 /* Assets.xcassets in Resources */,
 				65FEA8811C0B32E400183375 /* LICENSE in Resources */,
 				65FEA8711C0B26FD00183375 /* head_default@2x.png in Resources */,
-				65FEA87D1C0B2BB600183375 /* Simulator.png in Resources */,
 				65FEA82E1C0B22D000183375 /* Main.storyboard in Resources */,
 				65FEA8721C0B26FD00183375 /* like_btn@2x.png in Resources */,
+				657DA58B1C0C9A8700C87ECF /* screenshot.png in Resources */,
 				65FEA8731C0B26FD00183375 /* test.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
