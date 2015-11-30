@@ -8,7 +8,7 @@ NewsCommentLayout is licensed under the MIT license
 
 ### ScreenShot
 
-<img src="https://github.com/xxhp/NewsCommentLayout/blob/master/Simulator.png">
+<img src="https://github.com/xxhp/NewsCommentLayout/blob/master/screenshot.png">
 
 
  
