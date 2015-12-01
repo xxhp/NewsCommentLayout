@@ -23,13 +23,13 @@
 
 @implementation LayoutView
 
-- (instancetype)initWithFrame:(CGRect)frame model:(CommentModel *)amodel parentView:(LayoutView *)p isLast:(BOOL)isLast
+- (instancetype)initWithFrame:(CGRect)frame model:(CommentModel *)amodel parentView:(UIView*)p isLast:(BOOL)isLast
 {
     if (self = [super initWithFrame:frame]) {
         self.isLastFloor = isLast;
         self.parent = p;
         self.model = amodel;
-        if (!isLast) {
+        if (!self.isLastFloor) {
             self.layer.borderWidth = LayoutBordWidth;
             self.layer.borderColor = LayoutBordColor.CGColor;
             self.backgroundColor = LayoutBackgroundColor;

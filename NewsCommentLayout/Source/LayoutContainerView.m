@@ -34,105 +34,49 @@
 
 -(void)updateWithModelArray:(NSMutableArray *)sortedArray{
     
-    self.backgroundColor = CellBackgroundColor;
-    
     int i = 0;
     id lastView = nil;
     float lastH = 0;
     
-    CommentModel *last = [sortedArray lastObject];
+    CommentModel *lastModel = [sortedArray lastObject];
     
-    if(sortedArray.count > 5 ){
+    if(sortedArray.count > MaxOverlapNumber ){
+       
+        NSMutableArray *tempArray =[[NSMutableArray alloc] initWithArray:sortedArray];
+        [tempArray removeObjectsInRange:NSMakeRange(sortedArray.count - MaxOverlapNumber, MaxOverlapNumber)];
         
-        CGRect r = CGRectMake(44+ 6*3, 60 + 6*3, [UIScreen mainScreen].bounds.size.width - 44 -10 - 2*(6 * 3),  0);
-        GridLayoutView  *vie =[[GridLayoutView alloc] initWithFrame:r andModelArray:sortedArray];
-        lastH = vie.frame.size.height;
-        [self addSubview:vie];
-        lastView = vie;
+        CGRect r = CGRectMake(44+ MaxOverlapNumber*OverlapSpace, 60 + MaxOverlapNumber*OverlapSpace, ScreenWidth - 44 -10 - 2*(MaxOverlapNumber * OverlapSpace),  0);
+        GridLayoutView  *gridView =[[GridLayoutView alloc] initWithFrame:r andModelArray:tempArray];
+        lastH = gridView.frame.size.height;
+        [self addSubview:gridView];
+        lastView = gridView;
+       
+        [sortedArray removeObjectsInRange:NSMakeRange(0, sortedArray.count - MaxOverlapNumber)];
+  
+    }
         
-        i = 6;
+    for (CommentModel *model in sortedArray) {
+       
+        i = lastModel.floor.intValue - model.floor.intValue;
         
-        for (NSInteger j = sortedArray.count - 6; j< sortedArray.count; j++) {
-            
-            CommentModel *model =sortedArray[j];
-            
-            CGRect r = CGRectMake(44+ i*3, 60 + i*3, [UIScreen mainScreen].bounds.size.width - 44 -10 - 2*(i * 3),  0);
-            
-            CGSize sz =[model sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(r.size.width-10, 1000)];
-            
-            r.size.height = sz.height +lastH + 55;
-            
-            LayoutView *vi =[[LayoutView alloc] initWithFrame:r model:model parentView:lastView isLast:[last isEqual: model]];
-            
-            lastH =  r.size.height;
-            
-            if (lastView) {
-                [self insertSubview:vi belowSubview:lastView];
-            }else{
-                [self addSubview:vi];
-            }
-            i --;
-            lastView = vi;
-            
+        CGRect r = CGRectMake(44+ i*OverlapSpace, 60 + i*OverlapSpace, ScreenWidth - 44 -10 - 2*(i * OverlapSpace), 0);
+        CGSize sz = [model sizeWithConstrainedToSize:CGSizeMake(r.size.width-10, MAXFLOAT)];
+        r.size.height = sz.height +lastH + 55;
+        
+        LayoutView *vi =[[LayoutView alloc] initWithFrame:r model:model parentView:lastView isLast:[lastModel isEqual: model]];
+        
+        lastH =  r.size.height;
+        
+        if (lastView) {
+            [self insertSubview:vi belowSubview:lastView];
+        }else{
+            [self addSubview:vi];
         }
-        
-        self.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, lastH+44);
-        
-    }else{
-        
-        for (CommentModel *model in sortedArray) {
-            float h = 0;
-            
-            i = [last.floor intValue] - model.floor.intValue;
-            
-            CGRect r = CGRectMake(44+ i*3, 60 + i*3, [UIScreen mainScreen].bounds.size.width - 44 -10 - 2*(i * 3),  h);
-            
-            CGSize sz =[model sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(r.size.width-10, 1000)];
-            
-            r.size.height = sz.height +lastH + 55;
-            
-            LayoutView *vi =[[LayoutView alloc] initWithFrame:r model:model parentView:lastView isLast:[last isEqual: model]];
-            
-            lastH =  r.size.height;
-            
-            if (lastView) {
-                [self insertSubview:vi belowSubview:lastView];
-            }else{
-                [self addSubview:vi];
-            }
-            
-            lastView = vi;
-        }
-        
-        self.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, lastH+44);
+        lastView = vi;
     }
     
-    _headImageView  =[[UIImageView alloc] initWithFrame:CGRectMake(10, 10, 30, 30)];
-    _headImageView.image =[UIImage imageNamed:@"head_default.png"];
+    self.frame = CGRectMake(0, 0,ScreenWidth, lastH+44);
     
-    _addressLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-    _addressLabel.font =[UIFont systemFontOfSize:12];
-    _addressLabel.textColor =[UIColor grayColor];
-    
-    _nameLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-    _nameLabel.font =[UIFont systemFontOfSize:14];
-    _nameLabel.textColor = NameColor;
-    
-
-    _nameLabel.text = self.model.name;
-    _addressLabel.text = self.model.address;
-    
-    _nameLabel.frame = CGRectMake(_headImageView.frame.origin.x + _headImageView.frame.size.width + 4, 10 ,self.frame.size.width - 10, 34);
-    _addressLabel.frame = CGRectMake(_headImageView.frame.origin.x + _headImageView.frame.size.width + 4, 30 ,self.frame.size.width - 10, 34);
-
-    _likeButton =[UIButton buttonWithType:UIButtonTypeCustom];
-    _likeButton.frame =  CGRectMake(self.frame.size.width - 32, 14 ,17, 16);
-    [_likeButton setBackgroundImage:[UIImage imageNamed:@"like_btn.png"] forState:UIControlStateNormal];
-    
-    [self addSubview:_likeButton];
-    [self addSubview:_headImageView];
-    [self addSubview:_nameLabel];
-    [self addSubview:_addressLabel];
     
 }
 -(instancetype)initWithModelArray:(NSArray *)model{
@@ -140,9 +84,42 @@
         self.backgroundColor = CellBackgroundColor;
         NSMutableArray *ar =[NSMutableArray arrayWithArray:model];
         self.model = [ar lastObject];
+        
+        self.backgroundColor = CellBackgroundColor;
+        
+        _headImageView  =[[UIImageView alloc] initWithFrame:CGRectMake(10, 10, 30, 30)];
+        _headImageView.image =[UIImage imageNamed:@"head_default.png"];
+        
+        _addressLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+        _addressLabel.font = AddressFont;
+        _addressLabel.textColor =[UIColor grayColor];
+        
+        _nameLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+        _nameLabel.font = NameFont;
+        _nameLabel.textColor = NameColor;
+        
+        _nameLabel.text = self.model.name;
+        _addressLabel.text = self.model.address;
+        
+        _likeButton =[UIButton buttonWithType:UIButtonTypeCustom];
+        [_likeButton setBackgroundImage:[UIImage imageNamed:@"like_btn.png"] forState:UIControlStateNormal];
+        
+        
+        [self addSubview:_likeButton];
+        [self addSubview:_headImageView];
+        [self addSubview:_nameLabel];
+        [self addSubview:_addressLabel];
+
         [self updateWithModelArray:ar];
         
     }
     return self;
+}
+-(void)layoutSubviews{
+    [super layoutSubviews];
+    _headImageView.frame = CGRectMake(10, 10, 30, 30);
+    _nameLabel.frame = CGRectMake(_headImageView.frame.origin.x + _headImageView.frame.size.width + 4, 10 ,self.frame.size.width - 10, 34);
+    _addressLabel.frame = CGRectMake(_headImageView.frame.origin.x + _headImageView.frame.size.width + 4, 30 ,self.frame.size.width - 10, 34);
+    _likeButton.frame =  CGRectMake(self.frame.size.width - 32, 14 ,17, 16);
 }
 @end

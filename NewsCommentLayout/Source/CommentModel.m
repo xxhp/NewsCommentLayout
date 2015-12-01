@@ -5,7 +5,7 @@
 //  Created by xiaohaibo on 11/29/15.
 //  Copyright © 2015 xiao haibo. All rights reserved.
 //
-
+#import "Constant.h"
 #import "CommentModel.h"
 
 @implementation CommentModel
@@ -32,9 +32,9 @@
     return self;
     
 }
-- (CGSize)sizeWithFont:(UIFont *)font constrainedToSize:(CGSize)size
+- (CGSize)sizeWithConstrainedToSize:(CGSize)size
 {
-    NSDictionary *attribute = @{NSFontAttributeName: font};
+    NSDictionary *attribute = @{NSFontAttributeName: CommentFont};
     CGSize textSize         = [self.comment boundingRectWithSize:CGSizeMake(size.width, 0)
                                                  options:NSStringDrawingTruncatesLastVisibleLine |NSStringDrawingUsesLineFragmentOrigin |NSStringDrawingUsesFontLeading
                                               attributes:attribute

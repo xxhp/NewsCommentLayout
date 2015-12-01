@@ -10,5 +10,5 @@
 #import "CommentModel.h"
  
 @interface LayoutView : UIView
-- (instancetype)initWithFrame:(CGRect)frame model:(CommentModel *)info parentView:(LayoutView *)p isLast:(BOOL)isLast;
+- (instancetype)initWithFrame:(CGRect)frame model:(CommentModel *)info parentView:(UIView*)p isLast:(BOOL)isLast;
 @end

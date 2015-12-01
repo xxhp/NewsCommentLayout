@@ -19,5 +19,5 @@
 
 
 -(instancetype)initWithDict:(NSDictionary *)dic;
--(CGSize)sizeWithFont:(UIFont *)font constrainedToSize:(CGSize)size;
+-(CGSize)sizeWithConstrainedToSize:(CGSize)sz;
 @end
